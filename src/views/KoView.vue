@@ -1,3 +1,3 @@
 <template>
-    <div></div>
+    <div>韓国語</div>
 </template>
