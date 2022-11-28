@@ -1,13 +1,16 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { Field, Lang } from './data/Field';
 
-import JaView from './views/JaView.vue'
-import EnView from './views/EnView.vue'
-import ZhView from './views/ZhView.vue'
-import KoView from './views/KoView.vue'
+import JaView from './components/JaView.vue'
+import EnView from './components/EnView.vue'
+import ZhView from './components/ZhView.vue'
+import KoView from './components/KoView.vue'
 // const cur: number = 0;
 const cur = ref<number>(0);
-const onChange = (value: string) => {
+const data: {[key: string]: string}[] = Array()
+const onFire = (value: Field) => {
+    data[value.lang][value.field] = value.value
     console.log(value)
 }
 </script>
@@ -25,7 +28,7 @@ const onChange = (value: string) => {
     </div>
     <div class="contents">
         <div v-show="cur === 0">
-            <JaView v-on:change="onChange"></JaView>
+            <JaView v-on:fire="onFire"></JaView>
         </div>
         <div v-show="cur === 1">
             <EnView></EnView>

@@ -1,8 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import JaView from '../views/JaView.vue'
-import EnView from '../views/EnView.vue'
-import ZhView from '../views/ZhView.vue'
-import KoView from '../views/KoView.vue'
+import JaView from '../components/JaView.vue'
+import EnView from '../components/EnView.vue'
+import ZhView from '../components/ZhView.vue'
+import KoView from '../components/KoView.vue'
 
 const routes = [
     {
