@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { Field, Lang } from './data/Field';
+import { ref } from 'vue'
+import { Field } from './data/Field'
 
 import JaView from './components/JaView.vue'
 import EnView from './components/EnView.vue'
@@ -10,8 +10,11 @@ import KoView from './components/KoView.vue'
 const cur = ref<number>(0);
 const data: {[key: string]: string}[] = Array()
 const onFire = (value: Field) => {
+    if (data[value.lang] === undefined) {
+        data[value.lang] = {}
+    }
     data[value.lang][value.field] = value.value
-    console.log(value)
+    console.log(data)
 }
 </script>
 
@@ -26,20 +29,22 @@ const onFire = (value: Field) => {
         <input name="lang" id="tab_ko" type="radio" class="tab-switch">
         <router-link to="/ko"><label for="tab_ko" class="tab-label" v-on:click="cur=3" v-bind:class="{'tab-switch-active' : (cur === 3)}">韓国語</label></router-link>
     </div>
-    <div class="contents">
-        <div v-show="cur === 0">
-            <JaView v-on:fire="onFire"></JaView>
+    <form>
+        <div class="contents">
+            <div v-show="cur === 0">
+                <JaView v-on:fire="onFire"></JaView>
+            </div>
+            <div v-show="cur === 1">
+                <EnView></EnView>
+            </div>
+            <div v-show="cur === 2">
+                <ZhView></ZhView>
+            </div>
+            <div v-show="cur === 3">
+                <KoView></KoView>
+            </div>
         </div>
-        <div v-show="cur === 1">
-            <EnView></EnView>
-        </div>
-        <div v-show="cur === 2">
-            <ZhView></ZhView>
-        </div>
-        <div v-show="cur === 3">
-            <KoView></KoView>
-        </div>
-    </div>
+    </form>
 </template>
 
 <style scoped lang="scss">
