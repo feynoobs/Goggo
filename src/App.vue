@@ -46,22 +46,20 @@ watch(cur, (newer: Lang, older: Lang) => {
         <input name="lang" id="tab_ko" type="radio" class="tab-switch">
         <router-link to="/ko"><label for="tab_ko" class="tab-label" v-on:click="cur=Lang.KO" v-bind:class="{'tab-switch-active' : (cur === Lang.KO)}">韓国語</label></router-link>
     </div>
-    <form>
-        <div class="contents">
-            <div v-show="cur === 0">
-                <JaView v-on:fire="onFire"></JaView>
-            </div>
-            <div v-show="cur === 1">
-                <EnView></EnView>
-            </div>
-            <div v-show="cur === 2">
-                <ZhView></ZhView>
-            </div>
-            <div v-show="cur === 3">
-                <KoView></KoView>
-            </div>
+    <div class="contents">
+        <div v-show="(cur === Lang.JA)">
+            <JaView v-on:fire="onFire"></JaView>
         </div>
-    </form>
+        <div v-show="(cur === Lang.EN)">
+            <EnView></EnView>
+        </div>
+        <div v-show="(cur === Lang.ZH)">
+            <ZhView></ZhView>
+        </div>
+        <div v-show="(cur === Lang.KO)">
+            <KoView></KoView>
+        </div>
+    </div>
 </template>
 
 <style scoped lang="scss">

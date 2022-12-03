@@ -5,13 +5,9 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-    name: 'EnView',
+    name: 'EnConfirm',
 })
 </script>
 
-<script setup lang="ts">
-import { onMounted } from 'vue';
-onMounted(() => {
-    document.title = '英語ページ'
-});
+<script lang="ts" setup>
 </script>

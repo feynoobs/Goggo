@@ -5,6 +5,9 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-    name: 'KoView',
+    name: 'KoConfirm',
 })
+</script>
+
+<script lang="ts" setup>
 </script>
