@@ -30,7 +30,7 @@ onMounted(() => {
     emits('fire', new Field(Lang.JA, 'name', ''))
     emits('fire', new Field(Lang.JA, 'email', ''))
 });
-useRouter().push('/confirm');
+
 const r = useRouter();
 function onSubmit() {
     r.push('/confirm');

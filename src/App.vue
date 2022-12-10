@@ -1,28 +1,14 @@
 <script lang="ts" setup>
 import { ref, onMounted, watch } from 'vue'
-import { Lang, Field } from './data/Field'
-
-import JaView from './components/JaView.vue'
-import EnView from './components/EnView.vue'
-import ZhView from './components/ZhView.vue'
-import KoView from './components/KoView.vue'
+import { Lang } from './data/Field'
 
 const cur = ref<number>(0);
-const data: {[key: string]: string}[] = Array()
 const meta: {[key: string]: string}[] = [
     {'title': '日本語', 'description': ''},
     {'title': '英語', 'description': ''},
     {'title': '中国語', 'description': ''},
     {'title': '韓国語', 'description': ''},
 ]
-
-const onFire = (value: Field) => {
-    if (data[value.lang] === undefined) {
-        data[value.lang] = {}
-    }
-    data[value.lang][value.field] = value.value
-    document.title = meta[value.lang]['title']
-}
 
 onMounted(() => {
     document.title = meta[0]['title']
@@ -47,18 +33,7 @@ watch(cur, (newer: Lang, older: Lang) => {
         <router-link to="/ko"><label for="tab_ko" class="tab-label" v-on:click="cur=Lang.KO" v-bind:class="{'tab-switch-active' : (cur === Lang.KO)}">韓国語</label></router-link>
     </div>
     <div class="contents">
-        <div v-show="(cur === Lang.JA)">
-            <JaView v-on:fire="onFire"></JaView>
-        </div>
-        <div v-show="(cur === Lang.EN)">
-            <EnView></EnView>
-        </div>
-        <div v-show="(cur === Lang.ZH)">
-            <ZhView></ZhView>
-        </div>
-        <div v-show="(cur === Lang.KO)">
-            <KoView></KoView>
-        </div>
+        <router-view></router-view>
     </div>
 </template>
 

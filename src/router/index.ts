@@ -55,7 +55,7 @@ const router = createRouter({
     history: createWebHashHistory(),
     routes
 })
-
+/*
 router.beforeEach((to, from, next) => {
     switch (to.name) {
         case 'jaconfirm':
@@ -71,5 +71,5 @@ router.beforeEach((to, from, next) => {
             break;
     }
 });
-
+*/
 export default router
