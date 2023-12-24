@@ -8,7 +8,7 @@
             </div>
             <div>
                 <ul>
-                    <li v-for="emil_errin in emil_errs">
+                    <li v-for="emil_errin in emil_errs" v-bind:key="emil_errin">
                         {{ emil_errin }}
                     </li>
                 </ul>
@@ -43,6 +43,8 @@ function send() : void {
         })
         .catch(e => {
             console.log(e.response)
+
+            emil_errs.value.length = 0
             e.response.data.errors.email.forEach((elem: string) => {
                 emil_errs.value.push(elem)
             })
