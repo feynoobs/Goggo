@@ -1,10 +1,24 @@
 
 <template>
-    <p>World!{{ name }}</p>
-    <input type="text" v-model="name">
-    <input type="email" v-model="email">
-    <input type="password" v-model="password">
+    <dl>
+        <dt>メールアドレス</dt>
+        <dd>
+            <div>
+                <input type="email" v-model="email">
+            </div>
+            <div>
+                <ul>
+                    <li v-for="emil_errin in emil_errs">
+                        {{ emil_errin }}
+                    </li>
+                </ul>
+            </div>
+        </dd>
+        <dt>パスワード</dt>
+        <dd><input type="password" v-model="password"></dd>
+    </dl>
     <input type="button" v-on:click="send">
+    <span>{{err}}</span>
 </template>
 
 <script setup lang="ts">
@@ -12,19 +26,27 @@ import { ref } from 'vue';
 import axios from 'axios';
 
 const http = axios.create({
-    baseURL: 'http://localhost',
+    baseURL: 'http://192.168.33.10',
     withCredentials: true,
 })
-
-const name = ref('');
-const email = ref('');
-const password = ref('');
+const email = ref<string>('');
+const password = ref<string>('');
+let err = ref<string>('');
+let emil_errs = ref<string[]>([]);
 function send() : void {
-    http.get('/sanctum/csrf-cookie').then((res) => {
-        http.post('/api/login', {email, password}).then((res) => {
+    http.get('/sanctum/csrf-cookie')
+        .then(_ => {
+            return http.post('/api/login', {email: email.value, password: password.value})
+        })
+        .then(res => {
             console.log(res)
         })
-    })
+        .catch(e => {
+            console.log(e.response)
+            e.response.data.errors.email.forEach((elem: string) => {
+                emil_errs.value.push(elem)
+            })
+        })
 }
 </script>
 

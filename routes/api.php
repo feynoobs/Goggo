@@ -23,7 +23,7 @@ use App\Models\TUser;
 //     return TUser::all();
 // });
 Route::group(['name' => 'api.'], function() {
-    Route::get('/login', LoginController::class)->name('login');
+    Route::post('/login', LoginController::class)->name('login');
     Route::group(['middleware' => ['auth:sanctum']], function() {
     });
 });

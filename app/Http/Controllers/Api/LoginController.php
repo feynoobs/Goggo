@@ -20,15 +20,10 @@ class LoginController extends Controller
         $code = 401;
         $response = [];
         if (Auth::attempt($credentials) === true) {
-            $request->session()->regenerate();
+            // $request->session()->regenerate();
             $response = Auth::user();
             $code = 200;
         }
         return response()->json($response, $code);
-    }
-
-    public function index(Request $request)
-    {
-
     }
 }
