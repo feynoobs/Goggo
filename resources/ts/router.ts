@@ -1,12 +1,21 @@
-import Home from './vue/Home.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import Home from './vue/Login.vue'
+import Dashboard from './vue/Dashboard.vue'
 
-const routes = [
-    {
-        // ルートネーム
-        name: 'home',
-        // urlのパス
-        path: '/',
-        // インポートしたページ
-        component: Home,
-    },
-]
+const router = createRouter({
+    history: createWebHistory(import.meta.env.BASE_URL),
+    routes: [
+        {
+            name: 'home',
+            path: '/login',
+            component: Home,
+        },
+        {
+            name: 'dashboard',
+            path: '/',
+            component: Dashboard,
+        }
+    ]
+})
+
+export default router

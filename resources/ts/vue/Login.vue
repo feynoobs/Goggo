@@ -73,7 +73,7 @@ function logout() : void {
     http
     .get('/sanctum/csrf-cookie')
     .then(_ => {
-        return http.post('/api/login', {email: email.value, password: password.value})
+        return http.post('/api/logout', {})
     })
     .then(res => {
         console.log(res)
