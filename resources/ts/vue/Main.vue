@@ -23,7 +23,8 @@
                     </div>
                 </dd>
             </dl>
-            <input type="button" class="btn" v-on:click="send" value="ログイン">
+            <input type="button" class="btn" v-on:click="login" value="ログイン">
+            <input type="button" class="btn" v-on:click="logout" value="ログアウト">
         </div>
     </div>
 </template>
@@ -40,32 +41,62 @@ const email = ref<string>('');
 const password = ref<string>('');
 const errs = ref<string[]>([]);
 
-function send() : void {
-    http.get('/sanctum/csrf-cookie')
-        .then(_ => {
-            return http.post('/api/login', {email: email.value, password: password.value})
-        })
-        .then(res => {
-            console.log(res)
-        })
-        .catch(e => {
-            console.log(e.response)
+function login() : void {
+    http
+    .get('/sanctum/csrf-cookie')
+    .then(_ => {
+        return http.post('/api/login', {email: email.value, password: password.value})
+    })
+    .then(res => {
+        console.log(res)
+    })
+    .catch(e => {
+        console.log(e.response)
 
-            errs.value.length = 0
-            if (e.response.data.errors !== undefined) {
-                if (e.response.data.errors.email !== undefined) {
-                    e.response.data.errors.email.forEach((elem: string) => {
-                        errs.value.push(elem)
-                    })
-                }
-                if (e.response.data.errors.password !== undefined) {
-                    e.response.data.errors.password.forEach((elem: string) => {
-                        errs.value.push(elem)
-                    })
-                }
+        errs.value.length = 0
+        if (e.response.data.errors !== undefined) {
+            if (e.response.data.errors.email !== undefined) {
+                e.response.data.errors.email.forEach((elem: string) => {
+                    errs.value.push(elem)
+                })
             }
-        })
+            if (e.response.data.errors.password !== undefined) {
+                e.response.data.errors.password.forEach((elem: string) => {
+                    errs.value.push(elem)
+                })
+            }
+        }
+    })
 }
+
+function logout() : void {
+    http
+    .get('/sanctum/csrf-cookie')
+    .then(_ => {
+        return http.post('/api/login', {email: email.value, password: password.value})
+    })
+    .then(res => {
+        console.log(res)
+    })
+    .catch(e => {
+        console.log(e.response)
+
+        errs.value.length = 0
+        if (e.response.data.errors !== undefined) {
+            if (e.response.data.errors.email !== undefined) {
+                e.response.data.errors.email.forEach((elem: string) => {
+                    errs.value.push(elem)
+                })
+            }
+            if (e.response.data.errors.password !== undefined) {
+                e.response.data.errors.password.forEach((elem: string) => {
+                    errs.value.push(elem)
+                })
+            }
+        }
+    })
+}
+
 </script>
 
 <style lang="scss" scope>

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\LogoutController;
 use App\Models\TUser;
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,6 @@ use App\Models\TUser;
 Route::group(['name' => 'api.'], function() {
     Route::post('/login', LoginController::class)->name('login');
     Route::group(['middleware' => ['auth:sanctum']], function() {
+        Route::post('/logout', LogoutController::class)->name('logout');
     });
 });
