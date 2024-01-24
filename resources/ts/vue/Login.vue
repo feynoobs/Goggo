@@ -71,32 +71,14 @@ function login() : void {
 
 function logout() : void {
     http
-    .get('/sanctum/csrf-cookie')
-    .then(_ => {
-        return http.post('/api/logout', {})
-    })
+    .post('/api/logout')
     .then(res => {
         console.log(res)
     })
     .catch(e => {
-        console.log(e.response)
-
-        errs.value.length = 0
-        if (e.response.data.errors !== undefined) {
-            if (e.response.data.errors.email !== undefined) {
-                e.response.data.errors.email.forEach((elem: string) => {
-                    errs.value.push(elem)
-                })
-            }
-            if (e.response.data.errors.password !== undefined) {
-                e.response.data.errors.password.forEach((elem: string) => {
-                    errs.value.push(elem)
-                })
-            }
-        }
+        console.log(e)
     })
 }
-
 </script>
 
 <style lang="scss" scope>
