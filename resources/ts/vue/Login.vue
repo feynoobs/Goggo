@@ -30,8 +30,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import axios from 'axios';
+import { ref } from 'vue'
+import axios from 'axios'
+import {state} from '../state'
+import { useRouter } from 'vue-router'
 
 const http = axios.create({
     baseURL: 'http://192.168.33.10',
@@ -41,17 +43,22 @@ const email = ref<string>('');
 const password = ref<string>('');
 const errs = ref<string[]>([]);
 
+const router = useRouter();
+
 function login() : void {
+    console.log(useRouter())
+    router.push({name: 'dashboard'})
     http
     .get('/sanctum/csrf-cookie')
     .then(_ => {
         return http.post('/api/login', {email: email.value, password: password.value})
     })
     .then(res => {
-        console.log(res)
+        state().setLogin()
+        router.push({name: 'dashboard'})
     })
     .catch(e => {
-        console.log(e.response)
+        // console.log(e)
 
         errs.value.length = 0
         if (e.response.data.errors !== undefined) {
@@ -73,10 +80,12 @@ function logout() : void {
     http
     .post('/api/logout')
     .then(res => {
+        state().setLogout()
+        router.push({name: 'login'})
         console.log(res)
     })
     .catch(e => {
-        console.log(e)
+        // console.log(e)
     })
 }
 </script>
