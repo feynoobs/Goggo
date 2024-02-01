@@ -11,5 +11,6 @@ export const state = defineStore('Store', {
         setLogout() {
             this.login = false
         }
-    }
+    },
+    persist: true,
 })

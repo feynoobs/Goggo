@@ -24,7 +24,6 @@
                 </dd>
             </dl>
             <input type="button" class="btn" v-on:click="login" value="ログイン">
-            <input type="button" class="btn" v-on:click="logout" value="ログアウト">
         </div>
     </div>
 </template>
@@ -75,7 +74,7 @@ function login() : void {
         }
     })
 }
-
+/*
 function logout() : void {
     http
     .post('/api/logout')
@@ -88,66 +87,67 @@ function logout() : void {
         // console.log(e)
     })
 }
+*/
 </script>
 
 <style lang="scss" scope>
-    div.wrap {
-        width: 1280px;
-        height: 1000px;
-        margin: 0 auto;
-        position: relative;
-    }
-    div.inner {
-        width: 640px;
-        height: 400px;
-        margin: 0 auto;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        position: absolute;
-    }
-    dl {
-        display: flex;
-        flex-wrap: wrap;
-        dt {
-            width: 40%;
-            &.pad {
-                padding: 10px 20px 10px 20px;
-            }
-        }
-        dd {
-            width: 60%;
-            &.pad {
-                padding: 0 10px;
-            }
+div.wrap {
+    width: 1280px;
+    height: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+div.inner {
+    width: 640px;
+    height: 400px;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+dl {
+    display: flex;
+    flex-wrap: wrap;
+    dt {
+        width: 40%;
+        &.pad {
+            padding: 10px 20px 10px 20px;
         }
     }
-    .border {
-        border: 1px solid #333;
+    dd {
+        width: 60%;
+        &.pad {
+            padding: 0 10px;
+        }
     }
+}
+.border {
+    border: 1px solid #333;
+}
 
-    ul {
-        list-style: disc;
-        color: red;
-    }
+ul {
+    list-style: disc;
+    color: red;
+}
 
-    input.btn {
-        display: block;
-        margin: 20px auto;
-        width: 160px;
-        text-align: center;
-        border: 1px solid #333;
-    }
+input.btn {
+    display: block;
+    margin: 20px auto;
+    width: 160px;
+    text-align: center;
+    border: 1px solid #333;
+}
 
-    input[type="email"],
-    input[type="password"] {
-        display: inline-block;
-        height: auto;
-        width: 100%;
-    }
-    div.item-wrap {
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
+input[type="email"],
+input[type="password"] {
+    display: inline-block;
+    height: auto;
+    width: 100%;
+}
+div.item-wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 </style>
