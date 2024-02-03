@@ -23,13 +23,16 @@ const router = useRouter();
 function logout() : void {
     http
     .post('/api/logout')
+    // APIが失敗してもログアウトする
     .then(res => {
         state().setLogout()
         router.push({name: 'login'})
         console.log(res)
     })
     .catch(e => {
-        // console.log(e)
+        state().setLogout()
+        router.push({name: 'login'})
+        console.log(e)
     })
 }
 </script>
