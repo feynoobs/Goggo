@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('t_responses', function (Blueprint $table) {
+        Schema::create('responses', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('thread_id');
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('uid')->nullable();
+            $table->string('ip');
+            $table->text('message')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('t_responses');
+        Schema::dropIfExists('responses');
     }
 };

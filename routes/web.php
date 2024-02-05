@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\TThread;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-Route::get('/{any?}', fn() => view('app'))->where('any', '.+');
+Route::get('/', function () {
+    // $obj = new \App\Models\TThread();
+    // dd(TThread::find(1));
+    // dd($obj->responses);
+    dd(\App\Models\Thread::find(1)->responses);
+});
+// Route::get('/{any?}', fn() => view('app'))->where('any', '.+');
