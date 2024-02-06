@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\LogoutController;
-use App\Models\TUser;
+use App\Http\Controllers\Api\BoardListContoller;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,9 +22,10 @@ use App\Models\TUser;
 //     return $request->user();
 // });
 // Route::get('users', function () {
-//     return TUser::all();
+//     return User::all();
 // });
 Route::group(['name' => 'api.', 'middleware' => ['api']], function() {
+    Route::post('/boards', BoardListContoller::class)->name('boards');
     Route::post('/login', LoginController::class)->name('login');
     Route::group(['middleware' => ['auth:sanctum']], function() {
         Route::post('/logout', LogoutController::class)->name('logout');

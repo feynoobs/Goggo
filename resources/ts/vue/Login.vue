@@ -90,7 +90,7 @@ function logout() : void {
 */
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 div.wrap {
     width: 1280px;
     height: 1000px;

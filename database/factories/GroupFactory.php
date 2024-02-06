@@ -18,6 +18,7 @@ class GroupFactory extends Factory
     {
         return [
             'name' => fake()->realText(10),
+            'sequence' => fake()->numberBetween(1, 4),
         ];
     }
 }

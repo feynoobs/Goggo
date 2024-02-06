@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('threads', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('board_id');
-
+            $table->unsignedBigInteger('sequence');
             $table->softDeletes();
             $table->timestamps();
         });

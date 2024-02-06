@@ -18,6 +18,7 @@ class ThreadFactory extends Factory
     {
         return [
             'board_id' => fake()->numberBetween(1, 40),
+            'sequence' => fake()->numberBetween(1, 10),
         ];
     }
 }

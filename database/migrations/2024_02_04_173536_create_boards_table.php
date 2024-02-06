@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('group_id');
             $table->string('name');
+            $table->unsignedBigInteger('sequence');
             $table->softDeletes();
             $table->timestamps();
         });
