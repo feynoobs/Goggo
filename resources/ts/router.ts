@@ -18,7 +18,7 @@ const router = createRouter({
         },
         {
             name: 'threads',
-            path: '/threads/:bbsid',
+            path: '/threads/:boardid',
             component: Threads,
             props: true
         }

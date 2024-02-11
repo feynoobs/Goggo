@@ -22,6 +22,5 @@ class ThreadListController extends Controller
         }
 
         return response()->json($responses, 200);
-
     }
 }

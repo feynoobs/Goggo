@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 div.center {
     position: relative;
     height: 100px;
