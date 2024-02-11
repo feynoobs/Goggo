@@ -5,7 +5,7 @@ import  router  from './router'
 import { guard } from './guard'
 import App from './vue/App.vue'
 
-guard(router)
+// guard(router)
 const app = createApp(App)
 const pinia = createPinia()
 pinia.use(createPersistedState())

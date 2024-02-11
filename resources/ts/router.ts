@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 import Login from './vue/Login.vue'
-import Dashboard from './vue/Dashboard.vue'
+import Bbss from './vue/Bbss.vue'
+import Threads from './vue/Threads.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -11,9 +12,15 @@ const router = createRouter({
             component: Login,
         },
         {
-            name: 'dashboard',
+            name: 'bbss',
             path: '/',
-            component: Dashboard,
+            component: Bbss,
+        },
+        {
+            name: 'threads',
+            path: '/threads/:bbsid',
+            component: Threads,
+            props: true
         }
     ]
 })

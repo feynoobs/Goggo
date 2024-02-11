@@ -39,8 +39,6 @@ function logout() : void {
 }
 </script>
 
-
-
 <template>
     <div class="wrap">
         <Header></Header>
