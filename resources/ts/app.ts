@@ -2,7 +2,8 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { createPersistedState } from "pinia-plugin-persistedstate"
 import  router  from './router'
-import { guard } from './guard'
+// あとで
+// import { guard } from './guard'
 import App from './vue/App.vue'
 
 // guard(router)

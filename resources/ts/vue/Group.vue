@@ -1,0 +1,35 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+
+import Header from './item/Header.vue'
+import BoardList from './item/BoardList.vue'
+import http from '../http'
+
+const data = ref<{value: any}>()
+
+http
+.post('/api/boards')
+.then(res => {
+    data.value = res.data
+})
+.catch(e => {
+    console.log(e)
+})
+</script>
+
+<template>
+    <div class="wrap">
+        <Header></Header>
+        <BoardList v-for="(v, k) in data" v-bind:key="k" v-bind:data="v"></BoardList>
+    </div>
+</template>
+
+<style lang="scss" scoped>
+input.btn {
+    display: block;
+    margin: 20px auto;
+    width: 160px;
+    text-align: center;
+    border: 1px solid #333;
+}
+</style>

@@ -1,27 +1,28 @@
 import { createRouter, createWebHistory } from "vue-router"
-import Login from './vue/Login.vue'
-import Bbss from './vue/Bbss.vue'
-import Threads from './vue/Threads.vue'
+import Group from './vue/Group.vue'
+import Board from './vue/Board.vue'
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
+        /*
         {
             name: 'login',
             path: '/login',
             component: Login,
         },
+        */
         {
-            name: 'bbss',
+            name: 'group',
             path: '/',
-            component: Bbss,
+            component: Group,
         },
         {
-            name: 'threads',
-            path: '/threads/:boardid',
-            component: Threads,
+            name: 'board',
+            path: '/board/:boardid',
+            component: Board,
             props: true
-        }
+        },
     ]
 })
 
