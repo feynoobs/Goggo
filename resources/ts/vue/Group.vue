@@ -1,3 +1,27 @@
+<template>
+    <Header></Header>
+    <div class="wrap">
+        <BoardList v-for="(v, k) in data" v-bind:key="k" v-bind:data="v"></BoardList>
+    </div>
+</template>
+
+<style lang="scss" scoped>
+input.btn {
+    display: block;
+    margin: 20px auto;
+    width: 160px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+div.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+</style>
+
 <script setup lang="ts">
 import { ref } from 'vue'
 
@@ -16,20 +40,3 @@ http
     console.log(e)
 })
 </script>
-
-<template>
-    <div class="wrap">
-        <Header></Header>
-        <BoardList v-for="(v, k) in data" v-bind:key="k" v-bind:data="v"></BoardList>
-    </div>
-</template>
-
-<style lang="scss" scoped>
-input.btn {
-    display: block;
-    margin: 20px auto;
-    width: 160px;
-    text-align: center;
-    border: 1px solid #333;
-}
-</style>

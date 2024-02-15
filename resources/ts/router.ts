@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 import Group from './vue/Group.vue'
 import Board from './vue/Board.vue'
+import Thread from './vue/Thread.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -19,8 +20,14 @@ const router = createRouter({
         },
         {
             name: 'board',
-            path: '/board/:boardid',
+            path: '/board/:id',
             component: Board,
+            props: true
+        },
+        {
+            name: 'thread',
+            path: '/thread/:id',
+            component: Thread,
             props: true
         },
     ]

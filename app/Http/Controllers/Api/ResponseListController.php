@@ -4,21 +4,21 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Board;
+use App\Models\Thread;
 
-class ThreadListController extends Controller
+class ResponseListController extends Controller
 {
     /**
      * Handle the incoming request.
      */
     public function __invoke(Request $request)
     {
-        $board = Board::find($request->id);
+        $thread = Thread::find($request->id);
         $responses = [];
 
-        if (!is_null($board)) {
-            $responses['board'] = $board;
-            $responses['threads'] = Board::find($board->id)->threads;
+        if (!is_null($thread)) {
+            $responses['thread'] = $thread;
+            $responses['responses'] = Thread::find($thread->id)->responses;
         }
 
         return response()->json($responses, 200);

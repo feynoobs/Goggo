@@ -18,6 +18,7 @@ class Thread extends Model
      */
     protected $fillable = [
         'board_id',
+        'name',
         'sequence',
     ];
 

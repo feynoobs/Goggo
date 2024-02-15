@@ -1,8 +1,8 @@
 <template>
     <div class="inner_wrap">
-        <div class="gname">{{ props.data!.group.name }}</div>
+        <div class="gname">{{ props.data!.board.name }}</div>
         <ul class="group">
-            <li v-for="(v, k) in props.data!.boards" v-bind:key="k" class="link"><router-link v-bind:to="{name: 'board', params:{id: v.id}}">{{ v.name }}</router-link></li>
+            <li v-for="(v, k) in props.data!.threads" v-bind:key="k" class="link"><router-link v-bind:to="{name: 'thread', params: {id: v.id}}">{{ v.name }}</router-link></li>
         </ul>
     </div>
 </template>
@@ -24,15 +24,12 @@ li.link:hover {
     color: blue;
 }
 div.inner_wrap {
-    margin: 20px 1%;
-    width: calc((100% - 2% * 6) / 3);
+    margin: 20px 10%;
 }
 </style>
 
 <script setup lang="ts">
 const props = defineProps({
-    data: Object
+    data: Object,
 });
-// console.log(props.data.group.name)
-// console.log(props.data.boards[0].name)
 </script>

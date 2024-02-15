@@ -1,41 +1,33 @@
 <template>
     <Header></Header>
-    <div class="wrap">
-        <ThreadList v-bind:data="data"></ThreadList>
-    </div>
+    <ResponseList v-bind:data="data"></ResponseList>
 </template>
 
 <style lang="scss" scoped>
-input.btn {
-    display: block;
-    margin: 20px auto;
-    width: 160px;
-    text-align: center;
-    border: 1px solid #333;
-}
 </style>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 
 import Header from './item/Header.vue'
-import ThreadList from './item/ThreadList.vue'
+import ResponseList from './item/ResponseList.vue'
 import http from '../http'
 
 const props = defineProps({
     id: Number
 });
-
+console.log(props.id)
 const data = ref<{value: any}>()
 
 const params = new URLSearchParams()
 params.append('id', (props.id ?? '').toString())
 http
-.post('/api/threads', params)
+.post('/api/responses', params)
 .then(res => {
     data.value = res.data
 })
 .catch(e => {
     console.error(e)
 })
+
 </script>
