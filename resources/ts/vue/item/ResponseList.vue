@@ -1,9 +1,10 @@
 <template>
-    <div class="inner_wrap">
-        <pre>{{ props.data!.thread.name }}</pre>
+    <div class="inner_wrap" v-if="props.data !== undefined">
         <div class="gname">{{ props.data!.thread.name }}</div>
-        <ul class="group">
-            <li v-for="(v, k) in props.data!.responses" v-bind:key="k" class="link">{{ v.message }}</li>
+        <ul class="group" v-if="props.data">
+            <li v-for="(v, k) in props.data!.responses" v-bind:key="k" class="link">
+                {{ v.message }}
+            </li>
         </ul>
     </div>
 </template>
@@ -32,5 +33,5 @@ div.inner_wrap {
 const props = defineProps({
     data: Object,
 });
-console.log(props.data)
+// console.log(props.data)
 </script>

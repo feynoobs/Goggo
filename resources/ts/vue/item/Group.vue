@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="group" v-for="(v1, k1) in props.groups" v-bind:key="k1">
+        <div v-if="props.groups !== undefined" class="group" v-for="(v1, k1) in props.groups" v-bind:key="k1">
             <p class="gname">{{ v1.group.name }}</p>
             <ul v-for="(v2, k2) in v1.boards" v-bind:key="k2">
                 <li><router-link v-bind:to="{ name: 'threads', params: {bbsid: v2.id} }">{{ v2.name }}</router-link></li>

@@ -1,5 +1,4 @@
 <template>
-    <Header></Header>
     <div class="wrap">
         <ThreadList v-bind:data="data"></ThreadList>
     </div>
@@ -18,7 +17,6 @@ input.btn {
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import Header from './item/Header.vue'
 import ThreadList from './item/ThreadList.vue'
 import http from '../http'
 

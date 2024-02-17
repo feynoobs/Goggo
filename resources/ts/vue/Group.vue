@@ -1,5 +1,4 @@
 <template>
-    <Header></Header>
     <div class="wrap">
         <BoardList v-for="(v, k) in data" v-bind:key="k" v-bind:data="v"></BoardList>
     </div>
@@ -25,7 +24,6 @@ div.wrap {
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import Header from './item/Header.vue'
 import BoardList from './item/BoardList.vue'
 import http from '../http'
 

@@ -1,6 +1,5 @@
 <template>
-    <Header></Header>
-    <ResponseList v-bind:data="data"></ResponseList>
+    <ResponseList v-if="data !== undefined" v-bind:data="data"></ResponseList>
 </template>
 
 <style lang="scss" scoped>
@@ -9,7 +8,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import Header from './item/Header.vue'
 import ResponseList from './item/ResponseList.vue'
 import http from '../http'
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="inner_wrap">
+    <div class="inner_wrap" v-if="props.data !== undefined">
         <div class="gname">{{ props.data!.board.name }}</div>
         <ul class="group">
             <li v-for="(v, k) in props.data!.threads" v-bind:key="k" class="link"><router-link v-bind:to="{name: 'thread', params: {id: v.id}}">{{ v.name }}</router-link></li>
