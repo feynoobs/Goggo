@@ -5,7 +5,7 @@
             <template v-for="(v, k) in props.data!.responses">
                 <dt>
                     <span class="id">{{ k }}</span>
-                    <span class="name">なまえ</span>
+                    <span class="name">名前:</span>
                     <template v-if="v.email === null">
                         <span class="rname">{{ v.name }}</span>
                     </template>
@@ -19,7 +19,11 @@
                         <span v-if="v.uid !== null">ID:{{ v.uid }}</span>
                     </span>
                 </dt>
-                <dd>{{ v.message }}</dd>
+                <dd>
+                    <div class="message">
+                        {{ v.message }}
+                    </div>
+                </dd>
             </template>
         </dl>
     </div>
@@ -38,11 +42,17 @@ dl.response > dt {
     color: #333;
 }
 dl.response > dd {
-    margin: 10px 100px 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     width: 100%;
     color: #333;
 }
 
+dl.response > dd > div.message {
+    width: 90%;
+    margin: 10px 0;
+}
 
 dl.response > dt > span.id {
     display: inline-block;
@@ -80,8 +90,10 @@ dl.response > dd {
     width: 100%;
 }
 
-div.inner_wrap {
-    margin: 20px 10%;
+div.inner_wrap > div.tname{
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: red;
 }
 </style>
 
