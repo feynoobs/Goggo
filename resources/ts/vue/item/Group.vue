@@ -36,7 +36,7 @@ ul > li {
 
 <script setup lang="ts">
 const props = defineProps({
-    groups: Array<Object>,
+    groups: Object,
 });
 console.log(props.groups)
 </script>
