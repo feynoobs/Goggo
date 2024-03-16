@@ -21,10 +21,18 @@ span.inner {
 </style>
 
 <script setup lang="ts">
-import { ref,watch } from 'vue';
+import { ref, watch } from 'vue';
 import { Pinia } from '../../pinia'
 const title = ref<String>()
-watch(() => Pinia().title, (change: String) => {
-    title.value = change
+title.value = Pinia().title
+watch(() => Pinia().title, (newVal: String, oldVal: String) : void => {
+    if (newVal !== '') {
+        title.value = newVal
+    }
+    else {
+        if (oldVal !== '') {
+            title.value = newVal
+        }
+    }
 })
 </script>

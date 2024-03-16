@@ -12,6 +12,9 @@ input.btn {
     text-align: center;
     border: 1px solid #333;
 }
+div.wrap {
+    background-color: rebeccapurple;
+}
 </style>
 
 <script setup lang="ts">

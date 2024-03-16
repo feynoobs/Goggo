@@ -47,11 +47,12 @@ dl.response > dd {
     justify-content: space-around;
     width: 100%;
     color: #333;
+    margin-bottom: 10px;
 }
 
 dl.response > dd > div.message {
     width: 90%;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 dl.response > dt > span.id {

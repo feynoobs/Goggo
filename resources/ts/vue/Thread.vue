@@ -15,6 +15,9 @@
 <style lang="scss" scoped>
 div.wrap {
     margin: 20px 10%;
+    border-radius: 10px;
+    background-color: #eee;
+    padding: 20px 20px;
 }
 
 div.wrap > textarea {
