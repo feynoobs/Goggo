@@ -1,6 +1,6 @@
 <template>
     <div class="center">
-        <span class="inner">掲示板にようこそ</span>
+        <span class="inner">{{ title }}</span>
     </div>
 </template>
 
@@ -21,4 +21,10 @@ span.inner {
 </style>
 
 <script setup lang="ts">
+import { ref,watch } from 'vue';
+import { Pinia } from '../../pinia'
+const title = ref<String>()
+watch(() => Pinia().title, (change: String) => {
+    title.value = change
+})
 </script>

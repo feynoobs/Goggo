@@ -26,7 +26,9 @@ import { ref } from 'vue'
 
 import BoardList from './item/BoardList.vue'
 import http from '../http'
+import { Pinia } from '../pinia'
 
+Pinia().setTitle('掲示板')
 const data = ref<{value: any}>()
 
 http

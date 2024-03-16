@@ -19,6 +19,9 @@ import { ref } from 'vue'
 
 import ThreadList from './item/ThreadList.vue'
 import http from '../http'
+import { Pinia } from '../pinia'
+
+Pinia().setTitle('板')
 
 const props = defineProps({
     id: Number

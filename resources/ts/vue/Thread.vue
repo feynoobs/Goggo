@@ -48,6 +48,9 @@ import { ref } from 'vue'
 
 import ResponseList from './item/ResponseList.vue'
 import http from '../http'
+import { Pinia } from '../pinia'
+
+Pinia().setTitle('スレ')
 
 const props = defineProps({
     id: Number

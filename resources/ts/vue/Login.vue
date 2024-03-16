@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import axios from 'axios'
-import {state} from '../state'
+import { Pinia } from '../pinia'
 import { useRouter } from 'vue-router'
 
 const http = axios.create({
@@ -53,7 +53,6 @@ function login() : void {
         return http.post('/api/login', {email: email.value, password: password.value})
     })
     .then(res => {
-        state().setLogin()
         router.push({name: 'dashboard'})
     })
     .catch(e => {
