@@ -35,7 +35,7 @@ import { Pinia } from '../pinia'
 import { useRouter } from 'vue-router'
 
 const http = axios.create({
-    baseURL: 'http://192.168.33.10',
+    baseURL: 'http://localhost',
     withCredentials: true,
 })
 const email = ref<string>('');

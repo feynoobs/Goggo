@@ -13,7 +13,10 @@ input.btn {
     border: 1px solid #333;
 }
 div.wrap {
-    background-color: rebeccapurple;
+    margin: 20px 10%;
+    border-radius: 10px;
+    background-color: #eee;
+    padding: 20px 20px;
 }
 </style>
 
