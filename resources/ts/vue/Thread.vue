@@ -53,8 +53,6 @@ import ResponseList from './item/ResponseList.vue'
 import http from '../http'
 import { Pinia } from '../pinia'
 
-Pinia().setTitle('スレ')
-
 const props = defineProps({
     id: Number
 });
@@ -66,6 +64,7 @@ params.append('id', (props.id ?? '').toString())
 http
 .post('/api/responses', params)
 .then(res => {
+    Pinia().setTitle(res.data.thread.name)
     data.value = res.data
 })
 .catch(e => {

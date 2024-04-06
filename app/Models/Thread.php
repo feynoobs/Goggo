@@ -24,6 +24,6 @@ class Thread extends Model
 
     public function responses(): HasMany
     {
-        return $this->hasMany(Response::class);
+        return $this->hasMany(Response::class)->orderBy('id');
     }
 }

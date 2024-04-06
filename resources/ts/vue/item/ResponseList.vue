@@ -4,7 +4,7 @@
         <dl class="response">
             <template v-for="(v, k) in props.data!.responses">
                 <dt>
-                    <span class="id">{{ k }}</span>
+                    <span class="id">{{ k+1 }}</span>
                     <span class="name">名前:</span>
                     <template v-if="v.email === null">
                         <span class="rname">{{ v.name }}</span>
@@ -57,7 +57,7 @@ dl.response > dd > div.message {
 
 dl.response > dt > span.id {
     display: inline-block;
-    width: 40px;
+    width: 35px;
     font-weight: normal;
 }
 
